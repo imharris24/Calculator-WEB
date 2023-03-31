@@ -116,3 +116,80 @@ document.getElementById('button-delete').addEventListener('click', function() {
 document.getElementById('button-calculate').addEventListener('click', function() {
     calculateInput();
 });
+
+document.addEventListener('keypress', (event) => {
+    switch(event.code) {
+        case 'Digit1':
+            updateInput('1');
+            break;
+        case 'Digit2':
+            updateInput('2');
+            break;
+        case 'Digit3':
+            updateInput('3');
+            break;
+        case 'Digit4':
+            updateInput('4');
+            break;
+        case 'Digit5':
+            updateInput('5');
+            break;
+        case 'Digit6':
+            updateInput('6');
+            break;
+        case 'Digit7':
+            updateInput('7');
+            break;
+        case 'Digit8':
+            if (event.key == '*') {
+                updateInput('*');
+                break;
+            }
+            updateInput('8');
+            break;
+        case 'Digit9':
+            if (event.key == '(') {
+                updateInput('(');
+                break;
+            }
+            updateInput('9');
+            break;
+        case 'Digit0':
+            if(event.key == ')') {
+                updateInput(')');
+                break;
+            }
+            updateInput('0');
+            break;
+        case 'Equal':
+            if(event.key == '+') {
+                updateInput('+');
+            }
+            calculateInput();
+            break;
+        case 'Minus':
+            updateInput('-');
+            break;
+        case 'Slash':
+            updateInput('/');
+            break;
+        case 'Period':
+            updateInput('.');
+            break;
+        case 'KeyC':
+            clearInput();
+            break;
+        case 'Backspace':
+            deleteInput();
+            break;
+        case 'Enter':
+            calculateInput();
+            break;
+    }
+}, false);
+
+document.addEventListener('keydown', (event) => {
+    if(event.code == 'Backspace') {
+        deleteInput();
+    }
+}, false);
